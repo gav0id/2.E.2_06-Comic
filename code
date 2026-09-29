@@ -48,7 +48,7 @@ public class Comic{
         }
     }
 }
-
+___
 public class Main {
     public static void main(String[] args){
         Comic c1 = new Comic("Spiderman", 6700, 1);
