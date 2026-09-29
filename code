@@ -1,1 +1,58 @@
+public class Comic{
+    private String titulo;
+    private double precio;
+    private int stock;
 
+    public Comic(String titulo, double precio, int stock) {
+        this.titulo = titulo;
+        if(precio >= 0){
+            this.precio = precio;
+        }else{
+            System.out.println("El precio no puede ser negativo");
+        }
+        if(stock >= 0){
+            this.stock = stock;
+        }else{
+            System.out.println("El stock no puede ser negativo");
+        }
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+    public String getTitulo() {
+        return titulo;
+    }
+    public int getStock() {
+        return stock;
+    }
+
+    public void setPrecio(double precio){
+        this.precio = precio;
+    }
+
+    public void reponerStock(int cantidad){
+        if (cantidad <= 0){
+            System.out.println("La cantidad a reponer debe ser mayor a 0");
+        } else {
+            stock = stock + cantidad;
+        }
+    }
+
+    public void venderUnidad(){
+        if (stock > 0){
+            stock = stock - 1;
+            System.out.println("Se vendio una unidad de " + titulo + ", quedan " + stock);
+        } else {
+            System.out.println("No hay stock disponible de " + titulo);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args){
+        Comic c1 = new Comic("Spiderman", 6700, 1);
+        c1.venderUnidad();
+        c1.venderUnidad();
+    }
+}
